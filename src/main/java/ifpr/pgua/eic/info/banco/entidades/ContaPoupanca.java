@@ -36,4 +36,12 @@ public class ContaPoupanca extends Conta{
         return texto;
     }
 
+    public void render(){
+        rendimento = rendimento + (saldo*taxaRendimento);
+    }
+
+    public String mostrarTipo(){
+        return "Conta Poupanca";
+    }
+
 }

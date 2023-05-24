@@ -2,12 +2,12 @@ package ifpr.pgua.eic.info.banco.entidades;
 
 //importações
 
-public class Conta{
+public abstract class Conta{
 
     //atributos
     private String agencia;
     private String numero;
-    private double saldo=0;
+    protected double saldo=0;
     private Pessoa cliente;
 
 
@@ -76,7 +76,7 @@ public class Conta{
             return "Valor inválido!";
             //return false;
         }
-        if(valor > saldo){
+        if(valor > saldo ){
             return "Saldo insuficiente!";
             //System.out.println("Impossível sacar!!");
             //return false;
@@ -97,5 +97,7 @@ public class Conta{
 
         return texto;
     }
+
+    public abstract String mostrarTipo();
 
 }

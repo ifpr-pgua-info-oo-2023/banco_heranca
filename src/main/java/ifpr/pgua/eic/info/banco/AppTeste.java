@@ -1,5 +1,8 @@
 package ifpr.pgua.eic.info.banco;
 
+import java.util.ArrayList;
+
+import ifpr.pgua.eic.info.banco.entidades.Conta;
 import ifpr.pgua.eic.info.banco.entidades.ContaCorrente;
 import ifpr.pgua.eic.info.banco.entidades.ContaPoupanca;
 import ifpr.pgua.eic.info.banco.entidades.Pessoa;
@@ -8,6 +11,8 @@ public class AppTeste {
     
     public static void main(String[] args) {
         
+        ArrayList<Conta> contas = new ArrayList<>();
+    
         ContaCorrente corrente;
         ContaPoupanca poupanca;
 
@@ -20,9 +25,23 @@ public class AppTeste {
         poupanca = new ContaPoupanca("1234", 
                                       "98765", ze, 0.001);
 
-        System.out.println(corrente.gerarExtrato());
-        System.out.println(poupanca.gerarExtrato());
+        contas.add(corrente);
+        contas.add(poupanca);
 
+        for(Conta c:contas){
+            System.out.println(c.gerarExtrato());
+        }
 
+        for(Conta c:contas){
+            if(c instanceof ContaPoupanca){
+                ContaPoupanca aux = (ContaPoupanca)c;
+                aux.render();
+            }
+        }
+
+        for(Conta c:contas){
+            System.out.println(c.mostrarTipo());
+        }
+        
     }
 }

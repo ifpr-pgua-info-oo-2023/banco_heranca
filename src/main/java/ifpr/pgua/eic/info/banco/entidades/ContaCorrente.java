@@ -42,4 +42,21 @@ public class ContaCorrente extends Conta {
         return texto;
     }
 
+    @Override
+    public String sacar(double valor){
+        if(valor < 0){
+            return "Valor inválido!!";
+        }
+        if(valor > (saldo + limite)){
+            return "Saldo insuficiente!!";
+        }
+
+        saldo = saldo - valor;
+        return "Saque realizado com sucesso!";
+    }
+
+
+    public String mostrarTipo(){
+        return "Conta Corrente";
+    }
 }
