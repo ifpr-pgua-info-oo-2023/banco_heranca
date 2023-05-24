@@ -1,4 +1,4 @@
-package ifpr.pgua.eic.info.banco;
+package ifpr.pgua.eic.info.banco.entidades;
 
 public class Pessoa {
     

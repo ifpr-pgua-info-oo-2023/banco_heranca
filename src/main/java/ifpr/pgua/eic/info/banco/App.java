@@ -3,11 +3,15 @@ package ifpr.pgua.eic.info.banco;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ifpr.pgua.eic.info.banco.controle.Banco;
+import ifpr.pgua.eic.info.banco.entidades.Conta;
+import ifpr.pgua.eic.info.banco.entidades.Pessoa;
+
 
 public class App {
 
     static Scanner teclado = new Scanner(System.in);
-    static ContaBancaria conta;
+    static Conta conta;
 
     static Banco banco = new Banco("infoBank");
 
@@ -84,7 +88,7 @@ public class App {
 
         Pessoa pessoa = banco.buscarCliente(cpf);
         if(pessoa != null){
-            conta = new ContaBancaria(agencia,numero,pessoa);
+            conta = new Conta(agencia,numero,pessoa);
 
             System.out.println("************");
             

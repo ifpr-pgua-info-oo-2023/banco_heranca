@@ -1,11 +1,14 @@
-package ifpr.pgua.eic.info.banco;
+package ifpr.pgua.eic.info.banco.controle;
 
 import java.util.ArrayList;
+
+import ifpr.pgua.eic.info.banco.entidades.Conta;
+import ifpr.pgua.eic.info.banco.entidades.Pessoa;
 
 
 public class Banco {
     
-    private ArrayList<ContaBancaria> contas;
+    private ArrayList<Conta> contas;
     private ArrayList<Pessoa> clientes;
 
     private String nome;
@@ -55,14 +58,14 @@ public class Banco {
         return texto;
     }
 
-    public void criarConta(ContaBancaria conta){
+    public void criarConta(Conta conta){
         contas.add(conta);
     }
 
     public String sacar(String numero, String agencia, double valor){
 
         
-        for(ContaBancaria aux:contas){
+        for(Conta aux:contas){
             if(aux.getNumero().equals(numero) && 
                aux.getAgencia().equals(agencia)){
                 return aux.sacar(valor);
@@ -76,7 +79,7 @@ public class Banco {
     public String depositar(String numero, String agencia, double valor){
 
         
-        for(ContaBancaria aux:contas){
+        for(Conta aux:contas){
             if(aux.getNumero().equals(numero) && 
                aux.getAgencia().equals(agencia)){
                 return aux.depositar(valor);
@@ -90,7 +93,7 @@ public class Banco {
     public String relatorio(){
         String relatorio="";
 
-        for(ContaBancaria aux:contas){
+        for(Conta aux:contas){
             relatorio=aux.gerarExtrato()+"\n";
         }
 
